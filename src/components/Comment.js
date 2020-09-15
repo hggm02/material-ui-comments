@@ -7,61 +7,53 @@ import {
   ListItemText,
   ListItemAvatar,
   Avatar,
-  Typography
+  Typography,
+  Card,
 } from "@material-ui/core";
 import Faker from "faker";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: theme.palette.background.paper,
+    maxWidth: "60ch",
   },
   fonts: {
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   inline: {
-    display: "inline"
-  }
+    display: "inline",
+  },
 }));
 
 const Comment = ({ comments }) => {
   const classes = useStyles();
   return (
-    <List className={classes.root}>
-      {comments.map(comment => {
-        console.log("Comment", comment);
-        return (
-          <React.Fragment key={comment.id}>
-            <ListItem key={comment.id} alignItems="flex-start">
-              <ListItemAvatar>
-                <Avatar alt="avatar" src={Faker.image.avatar()} />
-              </ListItemAvatar>
-              <ListItemText
-                primary={
-                  <Typography className={classes.fonts}>
-                    {comment.name}
-                  </Typography>
-                }
-                secondary={
-                  <>
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      className={classes.inline}
-                      color="textPrimary"
-                    >
-                      {comment.email}
+    <Card style={{ maxHeight: 200, overflow: "auto", maxWidth: "70ch" }}>
+      <List className={classes.root}>
+        {comments.map((comment) => {
+          console.log("Comment", comment);
+          return (
+            <React.Fragment key={comment.id}>
+              <ListItem key={comment.id} alignItems="flex-start">
+                <ListItemAvatar>
+                  <Avatar alt="avatar" src={Faker.image.avatar()} />
+                </ListItemAvatar>
+                <ListItemText
+                  primary={
+                    <Typography className={classes.fonts}>
+                      {comment.name}
                     </Typography>
-                    {` - ${comment.body}`}
-                  </>
-                }
-              />
-            </ListItem>
-            <Divider />
-          </React.Fragment>
-        );
-      })}
-    </List>
+                  }
+                  secondary={comment.body}
+                />
+              </ListItem>
+              <Divider />
+            </React.Fragment>
+          );
+        })}
+      </List>
+    </Card>
   );
 };
 
