@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core";
 import Controls from "./controls/Controls";
 import CloseIcon from "@material-ui/icons/Close";
+import { fade } from "@material-ui/core/styles/colorManipulator";
 
 const useStyles = makeStyles((theme) => ({
   dialogWrapper: {
@@ -29,6 +30,7 @@ export default function Popup(props) {
       open={openPopup}
       maxWidth="md"
       classes={{ paper: classes.dialogWrapper }}
+      BackdropProps={{ style: { backgroundColor: fade("#ffffff", 0) } }}
     >
       <DialogTitle className={classes.dialogTitle}>
         <div style={{ display: "flex" }}>
