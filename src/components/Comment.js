@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   form: {
     "& > *": {
       margin: theme.spacing(1),
-      width: 450,
+      width: 400,
     },
   },
   pageContent: {

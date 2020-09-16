@@ -13,8 +13,11 @@ import { fade } from "@material-ui/core/styles/colorManipulator";
 const useStyles = makeStyles((theme) => ({
   dialogWrapper: {
     padding: theme.spacing(2),
-    position: "absolute",
-    top: theme.spacing(5),
+    position: "fixed",
+    bottom: theme.spacing.unit,
+    right: theme.spacing.unit,
+    width: 500,
+    height: 400,
   },
   dialogTitle: {
     paddingRight: "0px",
