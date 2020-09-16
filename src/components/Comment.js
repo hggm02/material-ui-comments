@@ -9,8 +9,10 @@ import {
   Avatar,
   Typography,
   Card,
+  IconButton,
 } from "@material-ui/core";
 import Faker from "faker";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,6 +41,7 @@ const Comment = ({ comments }) => {
                 <ListItemAvatar>
                   <Avatar alt="avatar" src={Faker.image.avatar()} />
                 </ListItemAvatar>
+
                 <ListItemText
                   primary={
                     <Typography className={classes.fonts}>
@@ -47,8 +50,11 @@ const Comment = ({ comments }) => {
                   }
                   secondary={comment.body}
                 />
+                <IconButton edge="end" aria-label="delete">
+                  <DeleteIcon />
+                </IconButton>
               </ListItem>
-              <Divider />
+              <Divider Light />
             </React.Fragment>
           );
         })}
