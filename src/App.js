@@ -27,13 +27,11 @@ function App() {
   return (
     <CssBaseline>
       <Container>
-        <Grid container justify="space-between" className={classes.spacing}>
-          <Grid item>
-            <Typography className={classes.header} variant="h4" gutterBottom>
-              Comments
-            </Typography>
-          </Grid>
-        </Grid>
+        <Grid
+          container
+          justify="space-between"
+          className={classes.spacing}
+        ></Grid>
 
         <Comments />
       </Container>
