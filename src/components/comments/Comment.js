@@ -11,12 +11,11 @@ import {
   Card,
   IconButton,
   TextField,
-  Paper,
 } from "@material-ui/core";
 import Faker from "faker";
 import DeleteIcon from "@material-ui/icons/Delete";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
-//import Popup from "./Popup";
+//import Popup from './Popup';
 import Helpers from "./helpers/Helpers";
 import ChatIcon from "@material-ui/icons/Chat";
 
@@ -31,26 +30,13 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     maxWidth: "65ch",
   },
-  fonts: {
-    fontWeight: "bold",
-  },
-  inline: {
-    display: "inline",
-  },
   form: {
     "& > *": {
       margin: theme.spacing(1),
       width: 400,
     },
   },
-  pageContent: {
-    margin: theme.spacing(5),
-    padding: theme.spacing(3),
-  },
-  searchInput: {
-    width: "75%",
-  },
-  newButton: {
+  button: {
     position: "absolute",
     right: "10px",
   },
@@ -62,16 +48,14 @@ const Comment = ({ comments }) => {
 
   return (
     <>
-      <Paper className={classes.pageContent}>
-        <Helpers.Button
-          variant="outlined"
-          startIcon={<ChatIcon />}
-          className={classes.newButton}
-          onClick={() => {
-            setOpenPopup(true);
-          }}
-        />
-      </Paper>
+      <Helpers.Button
+        variant="outlined"
+        startIcon={<ChatIcon />}
+        className={classes.button}
+        onClick={() => {
+          setOpenPopup(true);
+        }}
+      />
       <Helpers.Popup
         title="Comments"
         openPopup={openPopup}
@@ -90,11 +74,7 @@ const Comment = ({ comments }) => {
                       </ListItemAvatar>
 
                       <ListItemText
-                        primary={
-                          <Typography className={classes.fonts}>
-                            {comment.name}
-                          </Typography>
-                        }
+                        primary={<Typography>{comment.name}</Typography>}
                         secondary={comment.body}
                       />
                       <IconButton edge="end" aria-label="delete">
