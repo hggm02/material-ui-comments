@@ -6,7 +6,7 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
-import Controls from "./controls/Controls";
+import ActionButton from "./ActionButton";
 import CloseIcon from "@material-ui/icons/Close";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 
@@ -40,13 +40,13 @@ export default function Popup(props) {
           <Typography variant="h6" component="div" style={{ flexGrow: 1 }}>
             {title}
           </Typography>
-          <Controls.ActionButton
+          <ActionButton
             onClick={() => {
               setOpenPopup(false);
             }}
           >
             <CloseIcon />
-          </Controls.ActionButton>
+          </ActionButton>
         </div>
       </DialogTitle>
       <DialogContent dividers>{children}</DialogContent>

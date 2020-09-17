@@ -16,8 +16,8 @@ import {
 import Faker from "faker";
 import DeleteIcon from "@material-ui/icons/Delete";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
-import Popup from "./Popup";
-import Controls from "./controls/Controls";
+//import Popup from "./Popup";
+import Helpers from "./helpers/Helpers";
 import ChatIcon from "@material-ui/icons/Chat";
 
 const useStyles = makeStyles((theme) => ({
@@ -63,7 +63,7 @@ const Comment = ({ comments }) => {
   return (
     <>
       <Paper className={classes.pageContent}>
-        <Controls.Button
+        <Helpers.Button
           variant="outlined"
           startIcon={<ChatIcon />}
           className={classes.newButton}
@@ -72,7 +72,11 @@ const Comment = ({ comments }) => {
           }}
         />
       </Paper>
-      <Popup title="Comments" openPopup={openPopup} setOpenPopup={setOpenPopup}>
+      <Helpers.Popup
+        title="Comments"
+        openPopup={openPopup}
+        setOpenPopup={setOpenPopup}
+      >
         <Card className={classes.root}>
           <Card className={classes.card}>
             <List className={classes.root}>
@@ -118,7 +122,7 @@ const Comment = ({ comments }) => {
             />
           </form>
         </Card>
-      </Popup>
+      </Helpers.Popup>
     </>
   );
 };

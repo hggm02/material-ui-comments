@@ -1,9 +1,11 @@
 import Button from "./Button";
 import ActionButton from "./ActionButton";
+import Popup from "./Popup";
 
-const Controls = {
+const Helpers = {
   Button,
   ActionButton,
+  Popup,
 };
 
-export default Controls;
+export default Helpers;
