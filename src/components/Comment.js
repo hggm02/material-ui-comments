@@ -18,7 +18,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import Popup from "./Popup";
 import Controls from "./controls/Controls";
-import AddIcon from "@material-ui/icons/Add";
+import ChatIcon from "@material-ui/icons/Chat";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,9 +64,8 @@ const Comment = ({ comments }) => {
     <>
       <Paper className={classes.pageContent}>
         <Controls.Button
-          text="Comments"
           variant="outlined"
-          startIcon={<AddIcon />}
+          startIcon={<ChatIcon />}
           className={classes.newButton}
           onClick={() => {
             setOpenPopup(true);
