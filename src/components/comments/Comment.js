@@ -13,7 +13,7 @@ import {
   TextField,
 } from "@material-ui/core";
 import Faker from "faker";
-import DeleteIcon from "@material-ui/icons/Delete";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 //import Popup from './Popup';
 import Helpers from "./helpers/Helpers";
@@ -71,6 +71,7 @@ const Comment = ({ comments }) => {
                     <ListItem key={comment.id} alignItems="flex-start">
                       <ListItemAvatar>
                         <Avatar alt="avatar" src={Faker.image.avatar()} />
+                        {/* Will need to add avatars later on */}
                       </ListItemAvatar>
 
                       <ListItemText
@@ -78,7 +79,14 @@ const Comment = ({ comments }) => {
                         secondary={comment.body}
                       />
                       <IconButton edge="end" aria-label="delete">
-                        <DeleteIcon />
+                        <MoreVertIcon />
+                        {/* 
+                        A pop up to delete or edit comments
+                        Icon sould only be visible if viewer is commenter
+                        or owner of item. Owner should only be able to
+                        delete commenter can delete or edit.
+                        make appropriate api calls for edit/delete
+                         */}
                       </IconButton>
                     </ListItem>
                     <Divider Light />
@@ -96,6 +104,11 @@ const Comment = ({ comments }) => {
                 endAdornment: (
                   <IconButton edge="end" aria-label="submit">
                     <ArrowUpwardIcon />
+                    {/* 
+                    When button is pushed
+                    Get contents of text field
+                    make a post request to api/comments
+                     */}
                   </IconButton>
                 ),
               }}
